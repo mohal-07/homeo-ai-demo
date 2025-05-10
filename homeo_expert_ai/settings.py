@@ -60,6 +60,11 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.koyeb.app',  # Allow any subdomain under koyeb.app
+]
+
+
 ROOT_URLCONF = "homeo_expert_ai.urls"
 
 TEMPLATES = [
