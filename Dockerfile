@@ -25,6 +25,8 @@ RUN python manage.py collectstatic --noinput
 # Copy Supervisor config
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Expose port for the app
 EXPOSE 8000
 
-CMD ["/usr/bin/supervisord"]
+# Run Supervisor to manage processes (Django + Celery)
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
